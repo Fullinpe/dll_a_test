@@ -1,3 +1,3 @@
 # Project exclude paths
-/ffmpeg-n4.2.2/
 /cmake-build-debug/
+/ffmpeg-4.2.2/

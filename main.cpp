@@ -39,11 +39,11 @@ int main() {
     AVFormatContext *avFormatContext = nullptr;
 
     int ret = openinput(&avFormatContext, R"(C:\Users\Fullinpe\Desktop\out.mp4)");
-
-    ret = avFormatContext->nb_streams;
+    if(avFormatContext)
+        ret = avFormatContext->streams[0]->nb_frames;
     cout << ret << endl;
 
-
+    _sleep(2000);
     avformat_free_context(avFormatContext);
 
     return 0;
