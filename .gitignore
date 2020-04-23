@@ -1,5 +1,0 @@
-# Project exclude paths
-/cmake-build-debug/
-/ffmpeg-4.2.2/
-!ffmpeg-4.2.2/include/
-/*.mp4
