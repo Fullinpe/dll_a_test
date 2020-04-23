@@ -33,6 +33,7 @@ int openinput(AVFormatContext **avFormatContext, const string &url) {
 
 int main() {
 
+
     av_register_all();
     avfilter_register_all();
     avformat_network_init();
