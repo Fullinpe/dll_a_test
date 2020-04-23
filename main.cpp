@@ -1,4 +1,5 @@
 #include <iostream>
+#include <synchapi.h>
 
 extern "C" {
 
@@ -20,22 +21,19 @@ int openinput(AVFormatContext **avFormatContext, const string &url) {
     };
     int ret = avformat_open_input(avFormatContext, url.c_str(), nullptr, nullptr);
     if (ret < 0) {
-        av_log(NULL, AV_LOG_ERROR, "OPEN FAILED");
+        av_log(nullptr, AV_LOG_ERROR, "OPEN FAILED");
         return -1;
     }
     ret = avformat_find_stream_info(*avFormatContext, nullptr);
     if (ret >= 0)
-        av_log(NULL, AV_LOG_ERROR, "READ SUCCESS");
+        av_log(nullptr, AV_LOG_ERROR, "READ SUCCESS");
     else
-        av_log(NULL, AV_LOG_ERROR, "READ FAILED");
+        av_log(nullptr, AV_LOG_ERROR, "READ FAILED");
     return ret;
 }
 
 int main() {
 
-
-    av_register_all();
-    avfilter_register_all();
     avformat_network_init();
     AVFormatContext *avFormatContext = nullptr;
 
@@ -44,7 +42,8 @@ int main() {
         ret = avFormatContext->streams[0]->nb_frames;
     cout << ret << endl;
 
-    _sleep(2000);
+    Sleep(2000);
+
     avformat_free_context(avFormatContext);
 
     return 0;

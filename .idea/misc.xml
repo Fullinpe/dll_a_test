@@ -4,4 +4,8 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
+  <component name="elmot.OpenOcdPlugin">
+    <option name="openOcdHome" value="$PROJECT_DIR$/../../OpenOCD-20190828-0.10.0" />
+    <option name="shippedGdb" value="false" />
+  </component>
 </project>
