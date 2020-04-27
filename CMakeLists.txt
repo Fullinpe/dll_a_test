@@ -14,6 +14,7 @@ add_executable(dll_a_test main.cpp)
 
 #target_link_libraries(
 #        dll_a_test
+#        -Wl,-Bstatic                       #以下为静态库
 #        -Wl,--start-group
 #        -lm -lz -lsecur32 -lws2_32
 #        -luser32 -lbcrypt
@@ -27,15 +28,19 @@ add_executable(dll_a_test main.cpp)
 #        -lswscale
 #        -lswresample
 #        -Wl,--end-group
-##        -Wl,-Bstatic -lstdc++ -lgcc_eh -lpthread -Wl,-Bdynamic
+#        -lstdc++ -lgcc_eh -lpthread
+##        -Wl,-Bdynamic                      #以下为动态库
 #)
 
-
-target_link_libraries(dll_a_test libavcodec.lib)
-target_link_libraries(dll_a_test libavformat.lib)
-target_link_libraries(dll_a_test libavdevice.lib)
-target_link_libraries(dll_a_test libavutil.lib)
-target_link_libraries(dll_a_test libavfilter.lib)
-target_link_libraries(dll_a_test libpostproc.lib)
-target_link_libraries(dll_a_test libswscale.lib)
-target_link_libraries(dll_a_test libswresample.lib)
+target_link_libraries(
+        dll_a_test
+        avformat
+        avdevice
+        avfilter
+        avcodec
+        avutil
+        postproc
+        swscale
+        swresample
+        #        avcodec-58 avdevice-58 avfilter-7 avformat-58 avutil-56 postproc-55 swresample-3 swscale-5
+)
